@@ -1,0 +1,28 @@
+name: Build Orbital Railgun
+
+on:
+  push:
+    branches:
+      - main   # Or the branch you commit to
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Java 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: 17
+
+    - name: Build with Gradle
+      run: ./gradlew build
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: orbital-railgun
+        path: build/libs/*.jar
