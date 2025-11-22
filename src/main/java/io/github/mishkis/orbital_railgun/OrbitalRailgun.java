@@ -14,6 +14,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.item.Item;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -27,6 +29,8 @@ public class OrbitalRailgun implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "orbital_railgun"), new OrbitalRailgunItem());
+
         OrbitalRailgunItems.initialize();
         OrbitalRailgunStrikeManager.initialize();
 
