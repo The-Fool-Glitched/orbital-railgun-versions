@@ -3,14 +3,15 @@ name: Build Orbital Railgun
 on:
   push:
     branches:
-      - main   # Or the branch you commit to
+      - main  # or your branch name
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     - name: Set up Java 17
       uses: actions/setup-java@v3
@@ -21,7 +22,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Upload artifact
+    - name: Upload built mod
       uses: actions/upload-artifact@v3
       with:
         name: orbital-railgun
