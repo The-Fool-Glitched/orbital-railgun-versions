@@ -24,6 +24,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+import net.minecraft.util.registry.Registry; // ✅ add this for registration
 
 public class OrbitalRailgunItem extends AnimatableItem {
     private final AnimatableInstanceCache CACHE = GeckoLibUtil.createInstanceCache(this);
@@ -73,5 +74,9 @@ public class OrbitalRailgunItem extends AnimatableItem {
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return CACHE;
+    }
+
+    public static void register() {
+        Registry.register(Registry.ITEM, new Identifier(OrbitalRailgun.MOD_ID, "orbital_railgun"), new OrbitalRailgunItem());
     }
 }
