@@ -16,7 +16,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.mutable.MutableObject;
-import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.animatable.AnimatableItem;
 import software.bernie.geckolib.animatable.client.RenderProvider;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
@@ -25,9 +25,9 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class OrbitalRailgunItem extends Item implements GeoItem {
+public class OrbitalRailgunItem extends AnimatableItem {
     private final AnimatableInstanceCache CACHE = GeckoLibUtil.createInstanceCache(this);
-    private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
+    private final Supplier<Object> renderProvider = AnimatableItem.makeRenderer(this);
     public final MutableObject<RenderProvider> renderProviderHolder = new MutableObject<>();
 
     public OrbitalRailgunItem() {
